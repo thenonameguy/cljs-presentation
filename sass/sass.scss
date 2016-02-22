@@ -1,0 +1,42 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.presentation {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.presentation footer {
+  padding: 1em;
+  background-color: #efefef;
+}
+
+.slide-holder {
+  flex: 1;
+}
+
+.slide-holder > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.app-state {
+  width: 100%;
+  max-width: 500px;
+}
