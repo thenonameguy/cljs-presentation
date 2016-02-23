@@ -67,6 +67,7 @@
 .jh-type-object, .jh-type-array{
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 .jh-root{
