@@ -20,6 +20,6 @@
     (fn []
       [:div.presentation
        [:div.slide-holder [render-slide @slide]]
-       [:footer (when-not @state-visible {:style {:display "none"}})
-        "App-state: "
-        [:div.app-state (edn->hiccup @re-frame.db/app-db)]]])))
+       (when @state-visible
+         [:footer "App-state: "
+          [:div.app-state (edn->hiccup @re-frame.db/app-db)]])])))
