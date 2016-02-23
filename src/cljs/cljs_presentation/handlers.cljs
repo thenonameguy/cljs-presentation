@@ -20,11 +20,6 @@
    (update db :slide dec)))
 
 (re-frame/register-handler
- :go-to-slide
- (fn [db [_ slide-index]]
-   (assoc db :slide slide-index)))
-
-(re-frame/register-handler
  :toggle-state-visibility
  (fn [db _]
    (update db :state-visible not)))
