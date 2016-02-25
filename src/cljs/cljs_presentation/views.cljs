@@ -1,9 +1,8 @@
 (ns cljs-presentation.views
   (:require [re-frame.core :as re-frame]
             [cljs.pprint :refer [pprint]]
-            [json-html.core :refer [edn->hiccup]]))
-
-(defmulti render-slide identity)
+            [json-html.core :refer [edn->hiccup]]
+            [cljs-presentation.util :refer [render-slide]]))
 
 (defmethod render-slide 0 []
   [:div.slide-0

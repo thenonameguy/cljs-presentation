@@ -8,3 +8,8 @@
   (if (isFullScreen)
     (exitFullScreen)
     (requestFullScreenWithKeys (.-documentElement js/document))))
+
+(defmulti render-slide identity)
+
+(defn slide-count []
+	(count (methods render-slide)))
