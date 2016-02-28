@@ -1,7 +1,7 @@
 (ns cljs-presentation.handlers
   (:require [re-frame.core :as re-frame]
             [cljs-presentation.db :as db]
-            [cljs-presentation.util :refer [toggle-fullscreen slide-count]])
+            [cljs-presentation.util :refer [toggle-fullscreen]])
   (:import [goog.events KeyCodes]))
 
 (re-frame/register-handler
@@ -10,9 +10,14 @@
    (merge db/default-value db)))
 
 (re-frame/register-handler
+ :slide-count
+ (fn [db [_ slide-count]]
+   (assoc db :slide-count slide-count)))
+
+(re-frame/register-handler
  :next-slide
  (fn [db _]
-   (if (< (:slide db) (dec (slide-count)))
+   (if (< (:slide db) (dec (:slide-count db)))
     (update db :slide inc)
     db)))
 
