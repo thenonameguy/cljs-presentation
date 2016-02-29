@@ -8,4 +8,3 @@
   (if (isFullScreen)
     (exitFullScreen)
     (requestFullScreenWithKeys (.-documentElement js/document))))
-
