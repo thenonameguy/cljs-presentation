@@ -16,8 +16,8 @@
 
 (re-frame/register-handler
  :next-slide
- (fn [db _]
-   (if (< (:slide db) (dec (:slide-count db)))
+ (fn [{:keys [slide slide-count] :as db} _]
+   (if (< slide (dec slide-count))
     (update db :slide inc)
     db)))
 
