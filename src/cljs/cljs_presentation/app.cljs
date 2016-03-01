@@ -7,6 +7,7 @@
             [cljs-presentation.views :as views]))
 
 (defn on-js-reload []
+  (re-frame/dispatch-sync [:slide-count (count (methods views/render-slide))])
   (reagent/render-component [views/presentation-component] (container)))
 
 (defn init []

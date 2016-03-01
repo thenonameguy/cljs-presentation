@@ -10,14 +10,23 @@
    (merge db/default-value db)))
 
 (re-frame/register-handler
+ :slide-count
+ (fn [db [_ slide-count]]
+   (assoc db :slide-count slide-count)))
+
+(re-frame/register-handler
  :next-slide
- (fn [db _]
-   (update db :slide inc)))
+ (fn [{:keys [slide slide-count] :as db} _]
+   (if (< slide (dec slide-count))
+    (update db :slide inc)
+    db)))
 
 (re-frame/register-handler
  :previous-slide
  (fn [db _]
-   (update db :slide dec)))
+   (if (> (:slide db) 0)
+     (update db :slide dec)
+     db)))
 
 (re-frame/register-handler
  :toggle-state-visibility
