@@ -4,10 +4,11 @@
             [cljs-presentation.handlers]
             [cljs-presentation.subs]
             [cljs-presentation.util :refer [container]]
+            [cljs-presentation.datomic :as datomic]
             [cljs-presentation.views :as views]))
 
 (defn on-js-reload []
-  (re-frame/dispatch-sync [:slide-count (count (methods views/render-slide))])
+  (re-frame/dispatch-sync [:slide-count (count (methods datomic/render-slide))])
   (reagent/render-component [views/presentation-component] (container)))
 
 (defn init []

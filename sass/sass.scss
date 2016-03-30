@@ -2,7 +2,7 @@ $font-stack:    Helvetica, sans-serif;
 $primary-color: #333;
 
 body {
-  font: 170% $font-stack;
+  font: 250% $font-stack;
   color: $primary-color;
   margin: 0;
   padding: 0;
@@ -83,6 +83,10 @@ body {
 .slide-holder > .slide-7 {
   // font-size: 500%;
   font-size: 25%;
+}
+
+.datomic-data-model {
+  font-size: 150%;
 }
 
 ul > li {
